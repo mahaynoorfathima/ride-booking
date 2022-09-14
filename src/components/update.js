@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import { Feedbacks } from "../Variables";
-
+import { format } from 'react-string-format';
 export class Updates extends Component{
 
     constructor(props) {
@@ -24,8 +24,8 @@ export class Updates extends Component{
         e.preventDefault();  
               
         axios({
-            method:'put',
-            url:Feedbacks.API_URL,
+            method:'Put',
+            url:Feedbacks.API_URL.format(0),
             data:{
                Name:this.state.Name,
                Time:this.state.Time,

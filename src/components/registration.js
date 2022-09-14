@@ -2,6 +2,7 @@ import { Component } from "react";
 import axios from 'axios';
 import { variables } from "../Variables";
 import './Navigation.css';
+import React from "react";
 export class AddPerson extends Component{
 
     constructor(props) {

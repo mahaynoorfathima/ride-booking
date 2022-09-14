@@ -72,7 +72,7 @@ export class ViewFeed extends Component{
           <td>{ item.time }</td>
          <td>
           <Link to={'/update'}>
-          <Button onClick={() =>alert(item.id)}>Update</Button>
+          <Button onClick={(e) =>alert(item.id)}>Update</Button>
           </Link>
           &nbsp;
           
