@@ -1,0 +1,40 @@
+
+.bo
+{
+  margin-right: 1300px;
+  color: greenyellow;
+}
+#collasible-nav-dropdown
+{
+  margin-left: 1300px;
+  color: greenyellow;
+}
+.nav
+{
+  background-color: blueviolet;
+  height: 50px;
+}
+.n{
+  color:greenyellow;
+  margin-right: 600px;
+  margin-top: 30px;
+  
+}
+button
+{
+  color: black;
+  background-color: red;
+ border-radius: 15px;
+ width: 140px;
+ height: 40px;
+}
+input
+{
+  width:180px;
+  height:30px;
+  border-radius: 15px;
+}
+.m
+{
+  margin-left: 4px;
+}
