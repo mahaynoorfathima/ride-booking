@@ -1,0 +1,24 @@
+/* table,th,tr,td{
+    width:100%;
+} */
+td,th,tr{
+    width:50%;
+}
+table{
+    width:60%;
+    border-radius: 15px;
+    border-color: blue;
+}
+th{
+    background-color: aqua;
+
+}
+button
+{
+    background-color: green;
+    
+}
+td{
+    color: antiquewhite;
+   
+}
