@@ -1,23 +1,20 @@
 import { Component } from "react";
 import axios from 'axios';
 import { Feedbacks } from "../Variables";
-//import { format } from 'react-string-format';
+import { format } from 'react-string-format';
 export class Updates extends Component{
 
     constructor(props) {
       super(props)
     
       this.state = {  
-           
+          
         Name:'',
         Time:'',
         feedback:''
       }
     }
-    onTrigger = (event) => {
-        this.props.parentCallback("Data from child");
-        event.preventDefault();
-    }
+   
     handleChange=(e) =>{        
         this.setState({
             [e.target.id]:e.target.value,            
@@ -29,7 +26,7 @@ export class Updates extends Component{
               
         axios({
             method:'Put',
-            url:Feedbacks.API_URL,
+            url:format(Feedbacks.API_URL,window.location.href.split('?')[1]),
             data:{
                Name:this.state.Name,
                Time:this.state.Time,
@@ -40,12 +37,12 @@ export class Updates extends Component{
 
 
     render(){   
-          
+           
         return(     
                    
             <div><h1><i>UPDATE</i></h1><br />
             
-                <form onSubmit= {this.onTrigger}>
+                <form onSubmit= {this.handleSubmit}>
                     
                     <label>Name</label><br />
                     <input type='text' id='Name' name='Name' value={this.state.Name} onChange={this.handleChange}  required=""></input><br />

@@ -7,9 +7,12 @@ export const variable ={
 export const variabless ={
     API_URL : "http://localhost:5138/api/v1.0/rideapp/<username>/bookride"
 }
-export const Feedback ={
+export const Feedbackk ={
     API_URL : "http://localhost:5138/api/v1.0/rideapp/<username>/feedback/<id>"
 }
+export const Feedback ={
+    API_URL : "http://localhost:5138/api/v1.0/rideapp/username/deleteFeedback/{0}"
+}
 export const Feedbacks ={
-    API_URL : "http://localhost:5138/api/v1.0/rideapp/{username}/updateFeedback/{id}"
+    API_URL : "http://localhost:5138/api/v1.0/rideapp/username/updateFeedback/{0}"
 }

@@ -16,10 +16,14 @@ export class Booking extends Component{
 
     handleChange=(e) =>{        
         this.setState({
-            [e.target.id]:e.target.value,            
+            [e.target.id]:e.target.value,   
+                    
         })
+        
     }
-
+handleUnique=(e)=>{
+    alert("your unique id is 4433");
+}
     handleSubmit=(e) =>{      
         e.preventDefault();  
               
@@ -43,7 +47,7 @@ export class Booking extends Component{
                     <label><strong>RideType</strong></label><br />
                     <input type='text' id='RideType' name='RideType' value={this.state.RideType} onChange={this.handleChange} required=""></input><br /><br/>
                     
-                    <button type='submit'>Book Ride</button>
+                    <button type='submit' onClick={this.handleUnique}>Book Ride</button>
                 </form>    
             </div>
         )

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from 'axios';
-import { Feedback } from "../Variables";
+import { Feedbackk } from "../Variables";
 
 export class Feeds extends Component{
 
@@ -13,7 +13,10 @@ export class Feeds extends Component{
         feedback:''
       }
     }
-
+    Reg=(e)=>
+    {
+        alert("Thank You For Your Valuable FeedBack");
+    }
     handleChange=(e) =>{        
         this.setState({
             [e.target.id]:e.target.value,            
@@ -24,8 +27,8 @@ export class Feeds extends Component{
         e.preventDefault();  
               
         axios({
-            method:'post',
-            url:Feedback.API_URL,
+            method:'Post',
+            url:Feedbackk.API_URL,
             data:{
                Name:this.state.Name,
                Time:this.state.Time,
@@ -45,7 +48,7 @@ export class Feeds extends Component{
                     <input type='time' id='Time' name='Time' value={this.state.Time} onChange={this.handleChange} required=""></input><br />
                     <label><strong>feedback</strong></label><br />
                     <input type='text' id='feedback' name='feedback' value={this.state.feedback} onChange={this.handleChange}  required=""></input><br /><br/>
-                    <button type='submit'>Submit</button>
+                    <button type='submit' onClick={this.Reg}>Submit</button>
                 </form>    
             </div>
         )

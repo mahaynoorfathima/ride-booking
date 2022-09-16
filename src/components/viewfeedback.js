@@ -5,6 +5,7 @@ import {Table, Button} from 'react-bootstrap';
 import { Component } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { format } from 'react-string-format';
 import { Feedback } from "../Variables";
 import { Updates } from './update';
 export class ViewFeed extends Component{
@@ -15,7 +16,7 @@ export class ViewFeed extends Component{
   super(props);
 
   this.state = {
-    data: null,
+   
    items: [],
    DataisLoaded: false
   };
@@ -36,12 +37,13 @@ export class ViewFeed extends Component{
     });
    })
  }
- handleDelete=(e) =>{      
-  e.preventDefault();  
-        
+
+ handleDelete = id =>(e) =>{      
+  e.preventDefault(); 
+          
   axios({
       method:'Delete',
-      url:Feedback.API_URL,
+      url:format(Feedback.API_URL,id),
       data:{
          Name:this.state.Name,
          Time:this.state.Time,
@@ -74,21 +76,22 @@ export class ViewFeed extends Component{
       {
    
     items.map((item) => (
-<tr><td> {item.id}</td>
+<tr>
           <td >{ item.name }</td>
           <td>{ item.feedback }</td>
           <td>{ item.time }</td>
          <td>
-          <Link to={`/update/${item.id}`}>
-          <Button parentCallback = {this.handleCallback}>Update</Button>
+          <Link to={`/update/?${item.id}`}>
+            
+          <Button >Update</Button>
           
           </Link>
           &nbsp;
           
          </td>
-         <Link to={'/delete'}>
-         <td><Button parentCallback = {this.handleCallback}>Delete</Button></td>
-         </Link>
+         
+         <td><Button onClick={this.handleDelete(`${item.id}`)} >Delete</Button></td>
+        
           
         </tr>
     

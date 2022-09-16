@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import { variable } from "../Variables";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 export class Login extends Component{
 
     constructor(props) {
@@ -19,7 +19,10 @@ export class Login extends Component{
             [e.target.id]:e.target.value,            
         })
     }
-
+    Reg=(e)=>
+    {
+        alert("Login Succesfully");
+    }
     handleSubmit=(e) =>{      
         e.preventDefault();  
               
@@ -44,7 +47,7 @@ export class Login extends Component{
                     
                     <label><strong>Password</strong></label><br />
                     <input type='password' id='password' name='password' value={this.state.password} onChange={this.handleChange} ></input><br/><br/>
-                    <button type='submit'> <a href="bookingride"><font color="black">Login</font></a></button>
+                    <button type='submit'onClick={this.Reg}> <a href="bookingride"><font color="black">Login</font></a></button>
                 </form>    
             </div>
         )
