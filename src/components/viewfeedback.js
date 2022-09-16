@@ -6,6 +6,7 @@ import { Component } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { Feedback } from "../Variables";
+import { Updates } from './update';
 export class ViewFeed extends Component{
 
  // Constructor
@@ -14,11 +15,14 @@ export class ViewFeed extends Component{
   super(props);
 
   this.state = {
+    data: null,
    items: [],
    DataisLoaded: false
   };
  }
-
+ handleCallback = (childData) =>{
+  this.setState({data: childData})
+}
  // ComponentDidMount is used to
  // execute the code
  componentDidMount() {
@@ -46,16 +50,20 @@ export class ViewFeed extends Component{
   })
 }
  render() {
+
   const { DataisLoaded, items } = this.state;
   if (!DataisLoaded) return <div>
    <h1> Pleses wait some time.... </h1> </div> ;
-
+ const {data} = this.state;
   return (
   <div className = "App">
     <h1> View FeedBcak</h1> 
    <center><Table border="2" >
+  
+    
    <div>
    <tr>
+    <th>Id</th>
      <th>Name</th>
      <th>FeedBack</th>
      <th>Time</th>
@@ -66,19 +74,20 @@ export class ViewFeed extends Component{
       {
    
     items.map((item) => (
-<tr>
+<tr><td> {item.id}</td>
           <td >{ item.name }</td>
           <td>{ item.feedback }</td>
           <td>{ item.time }</td>
          <td>
-          <Link to={'/update'}>
-          <Button onClick={(e) =>alert(item.id)}>Update</Button>
+          <Link to={`/update/${item.id}`}>
+          <Button parentCallback = {this.handleCallback}>Update</Button>
+          
           </Link>
           &nbsp;
           
          </td>
          <Link to={'/delete'}>
-         <td><Button onClick={this.handleDelete}>Delete</Button></td>
+         <td><Button parentCallback = {this.handleCallback}>Delete</Button></td>
          </Link>
           
         </tr>
